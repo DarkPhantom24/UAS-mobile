@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../services/supabase_service.dart';
+import '../utils/constants.dart';
 
 /// Handles Supabase authentication: login, register, logout, session persistence.
 /// Role is read from user_metadata/app_metadata in Supabase Auth.
@@ -52,7 +53,7 @@ class AuthController extends GetxController {
     debugPrint('🔄 Starting to fetch role...');
     final role = SupabaseService.fetchUserRole();
     debugPrint('🔄 Role received: $role');
-    isAdmin.value = (role == 'admin');
+    isAdmin.value = (role == AppConstants.roleAdmin);
     debugPrint('🔄 isAdmin set to: ${isAdmin.value}');
   }
 
@@ -75,8 +76,9 @@ class AuthController extends GetxController {
       errorMessage.value = 'Passwords do not match.';
       return;
     }
-    if (passwordController.text.length < 6) {
-      errorMessage.value = 'Password must be at least 6 characters.';
+    if (passwordController.text.length < AppConstants.minPasswordLength) {
+      errorMessage.value =
+          'Password must be at least ${AppConstants.minPasswordLength} characters.';
       return;
     }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import '../utils/constants.dart';
 
 /// Centralized Supabase client accessor.
 /// Role is fetched from user_metadata in Supabase Auth.
@@ -17,7 +18,7 @@ class SupabaseService {
     final user = currentUser;
     if (user == null) {
       debugPrint('❌ No current user found');
-      return 'user';
+      return AppConstants.roleUser;
     }
 
     debugPrint('🔍 Fetching role for user ID: ${user.id}');
@@ -32,7 +33,7 @@ class SupabaseService {
     role ??= user.appMetadata['role'] as String?;
 
     // Default ke 'user' jika tidak ada
-    role ??= 'user';
+    role ??= AppConstants.roleUser;
 
     debugPrint('✅ Role determined: $role');
     return role;
