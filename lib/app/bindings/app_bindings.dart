@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import '../controllers/auth_controller.dart';
 import '../controllers/movie_controller.dart';
+import '../controllers/main_controller.dart';
 import '../services/movie_provider.dart';
 
 /// Initial bindings loaded at app start.
@@ -13,5 +14,6 @@ class AppBindings extends Bindings {
     // Controllers
     Get.put(AuthController(), permanent: true);
     Get.lazyPut(() => MovieController(), fenix: true);
+    Get.lazyPut(() => MainController(), fenix: true);
   }
 }

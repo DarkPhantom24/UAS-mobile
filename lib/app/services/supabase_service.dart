@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../utils/constants.dart';
 
@@ -17,14 +16,8 @@ class SupabaseService {
   static String fetchUserRole() {
     final user = currentUser;
     if (user == null) {
-      debugPrint('❌ No current user found');
       return AppConstants.roleUser;
     }
-
-    debugPrint('🔍 Fetching role for user ID: ${user.id}');
-    debugPrint('🔍 User email: ${user.email}');
-    debugPrint('🔍 User metadata: ${user.userMetadata}');
-    debugPrint('🔍 App metadata: ${user.appMetadata}');
 
     // Cek di user_metadata dulu (bisa diubah user)
     String? role = user.userMetadata?['role'] as String?;
@@ -35,7 +28,6 @@ class SupabaseService {
     // Default ke 'user' jika tidak ada
     role ??= AppConstants.roleUser;
 
-    debugPrint('✅ Role determined: $role');
     return role;
   }
 
@@ -43,9 +35,7 @@ class SupabaseService {
   static Future<void> refreshSession() async {
     try {
       await client.auth.refreshSession();
-      debugPrint('✅ Session refreshed');
-    } catch (e) {
-      debugPrint('❌ Failed to refresh session: $e');
-    }
+    } catch (_) {}
   }
 }
+

@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import '../views/login_view.dart';
 import '../views/register_view.dart';
-import '../views/home_view.dart';
+import '../views/main_view.dart';
 import '../views/detail_view.dart';
 import '../views/admin_form_view.dart';
 import '../middleware/auth_middleware.dart';
@@ -29,7 +29,7 @@ class AppRoutes {
     ),
     GetPage(
       name: home,
-      page: () => HomeView(),
+      page: () => MainView(),
       middlewares: [AuthMiddleware()],
       transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 300),

@@ -1,34 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-/// Cinematic Dark Glassmorphism Theme
-/// Deep midnight blue/black background with Electric Blue & Neon Crimson accents.
+/// Cinematic Red & Black Theme
+/// Deep black background with vibrant Red accents.
 class AppTheme {
   // ──── Color Palette ────
-  static const Color scaffoldBg = Color(0xFF0A0E21);
-  static const Color surfaceDark = Color(0xFF111328);
-  static const Color cardDark = Color(0xFF1A1F38);
-  static const Color glassBg = Color(0x2A1A1F38);
+  static const Color scaffoldBg = Color(0xFF0D0D0D);
+  static const Color surfaceDark = Color(0xFF1A1A1A);
+  static const Color cardDark = Color(0xFF242424);
+  static const Color glassBg = Color(0xFF1A1A1A);
   static const Color glassBorder = Color(0x33FFFFFF);
 
-  static const Color accentBlue = Color(0xFF00E5FF);
+  static const Color accentBlue = Color(0xFFE53935);    // Now Red
   static const Color accentCrimson = Color(0xFFFF1744);
-  static const Color accentPurple = Color(0xFFBB86FC);
+  static const Color accentPurple = Color(0xFFFF5252);
   static const Color accentGold = Color(0xFFFFD740);
 
   static const Color textPrimary = Color(0xFFF5F5F5);
-  static const Color textSecondary = Color(0xFFB0BEC5);
-  static const Color textMuted = Color(0xFF607D8B);
+  static const Color textSecondary = Color(0xFFBDBDBD);
+  static const Color textMuted = Color(0xFF757575);
 
   // ──── Gradients ────
   static const LinearGradient primaryGradient = LinearGradient(
-    colors: [Color(0xFF0A0E21), Color(0xFF1A1F38)],
+    colors: [Color(0xFF0D0D0D), Color(0xFF1A1A1A)],
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
   );
 
   static const LinearGradient accentGradient = LinearGradient(
-    colors: [Color(0xFF00E5FF), Color(0xFF2979FF)],
+    colors: [Color(0xFFE53935), Color(0xFFFF1744)],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
@@ -40,7 +40,7 @@ class AppTheme {
   );
 
   static const LinearGradient heroOverlay = LinearGradient(
-    colors: [Colors.transparent, Color(0xE60A0E21)],
+    colors: [Colors.transparent, Color(0xE60D0D0D)],
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
   );

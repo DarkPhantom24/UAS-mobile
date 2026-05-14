@@ -50,11 +50,8 @@ class AuthController extends GetxController {
 
   /// Fetch role from user metadata
   void _fetchRole() {
-    debugPrint('🔄 Starting to fetch role...');
     final role = SupabaseService.fetchUserRole();
-    debugPrint('🔄 Role received: $role');
     isAdmin.value = (role == AppConstants.roleAdmin);
-    debugPrint('🔄 isAdmin set to: ${isAdmin.value}');
   }
 
   void togglePasswordVisibility() {
